@@ -13,7 +13,7 @@ export const ASSETS = {
 
   // Shop Gallery
   GALLERY: [
-    "https://images.unsplash.com/photo-1549495361-9128527a0595?auto=format&fit=crop&q=80&w=1200", // Bright Store Interior
+    "https://content3.jdmagicbox.com/comp/narasaraopet/j2/9999p8647.8647.200103220529.a2j2/catalogue/mallikarjuna-plastics-macherla-narasaraopet-chair-dealers-cello-elvo67bjja.jpg", // Bright Store Interior
     "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=1200", // Plastic Chairs Display
     "https://images.unsplash.com/photo-1542013976693-857628c4749e?auto=format&fit=crop&q=80&w=1200", // Plastic Buckets/Tubs
     "https://images.unsplash.com/photo-1534452285072-c51ef115a1b9?auto=format&fit=crop&q=80&w=1200", // Kitchenware Display
@@ -46,7 +46,7 @@ export const ASSETS = {
 
   // Video & Social
   VIDEOS: {
-    TOUR: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    TOUR: 'https://www.youtube.com/embed/wGHcYzZMMY0',
     INSTA_REEL_PLACEHOLDER: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800',
     INSTA_REEL_HIGHLIGHT: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600',
   },

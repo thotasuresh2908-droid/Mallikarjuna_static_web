@@ -350,11 +350,10 @@ export default function App() {
               </button>
 
               <div className="w-full md:w-1/2 aspect-square bg-slate-50 relative overflow-hidden">
-                <img 
+                <SmartImage 
                   src={selectedProduct.image} 
                   alt={selectedProduct.name} 
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-6 left-6">
                   <span className="bg-indigo-600 text-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
