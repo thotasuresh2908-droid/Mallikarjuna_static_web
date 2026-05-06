@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Phone, MessageCircle, ExternalLink, ArrowRight, Play, Heart, Star, MapPin, Clock, Youtube, Instagram, Facebook, X, ShoppingCart } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Section, SectionHeader, ProductCard, Icon, ProductCarousel } from './components/ui-components';
+import { Section, SectionHeader, ProductCard, Icon, ProductCarousel, SmartImage } from './components/ui-components';
 import { SHOP_NAME, LOCATION, PHONE, WHATSAPP, CATEGORIES, PRODUCTS, SOCIAL_EMBEDS, ABOUT_TEXT, GOOGLE_MAPS_LINK, SHOP_IMAGES, ADDRESS } from './constants';
+import { ASSETS } from './assets';
 
 import { useProductFilter } from './hooks/useProductFilter';
 import { CategoryId, Product } from './types';
@@ -63,11 +64,10 @@ export default function App() {
           <section id="gallery" className="lg:col-span-2 lg:row-span-1 grid grid-cols-2 gap-4">
             {SHOP_IMAGES.map((img, i) => (
               <div key={i} className="relative rounded-[20px] md:rounded-[2rem] overflow-hidden group border border-slate-200 shadow-sm aspect-square">
-                <img 
+                <SmartImage 
                   src={img} 
                   alt={`Shop View ${i+1}`} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
               </div>
@@ -95,7 +95,7 @@ export default function App() {
                     </div>
                   </div>
                   <img 
-                    src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800" 
+                    src={ASSETS.VIDEOS.INSTA_REEL_PLACEHOLDER} 
                     className="w-full h-full object-cover opacity-60" 
                     alt="Video thumbnail"
                     referrerPolicy="no-referrer"
@@ -203,7 +203,7 @@ export default function App() {
                 </div>
                 <div className="flex-grow relative rounded-[1.2rem] overflow-hidden group/reel cursor-pointer shadow-lg">
                   <img 
-                    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600" 
+                    src={ASSETS.VIDEOS.INSTA_REEL_HIGHLIGHT} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/reel:scale-110 opacity-90"
                     alt="Latest Reel"
                   />
