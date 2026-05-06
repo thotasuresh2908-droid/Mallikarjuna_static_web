@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Phone, MessageCircle, ExternalLink, ArrowRight, Play, Heart, Star, MapPin, Clock, Youtube, Instagram, Facebook, X, ShoppingCart } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { Section, SectionHeader, ProductCard, Icon } from './components/ui-components';
+import { Section, SectionHeader, ProductCard, Icon, ProductCarousel } from './components/ui-components';
 import { SHOP_NAME, LOCATION, PHONE, WHATSAPP, CATEGORIES, PRODUCTS, SOCIAL_EMBEDS, ABOUT_TEXT, GOOGLE_MAPS_LINK, SHOP_IMAGES, ADDRESS } from './constants';
 
 import { useProductFilter } from './hooks/useProductFilter';
@@ -224,6 +224,13 @@ export default function App() {
           {/* Products Wide Section */}
           <section id="products" className="lg:col-span-4 bg-white rounded-[2rem] p-8 md:p-12 border border-slate-200 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full blur-3xl -z-10"></div>
+            
+            {/* Carousel with 5 Products */}
+            <ProductCarousel 
+              products={PRODUCTS.slice(0, 5)} 
+              onViewDetails={(product) => setSelectedProduct(product)}
+            />
+
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
               <div>
                 <h3 className="text-3xl font-black text-slate-800 tracking-tight mb-2">Our Collection</h3>
@@ -287,7 +294,12 @@ export default function App() {
                 <a href={`tel:${PHONE}`} className="w-12 h-12 bg-white text-indigo-600 rounded-2xl flex items-center justify-center font-bold shadow-lg hover:scale-110 transition-transform">
                   <Phone className="w-6 h-6" />
                 </a>
-                <a href={`https://wa.me/${WHATSAPP}`} className="w-12 h-12 bg-emerald-500 text-white rounded-2xl flex items-center justify-center font-bold shadow-lg hover:scale-110 transition-transform">
+                <a 
+                  href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi " + SHOP_NAME + ", I need some help regarding your products.")}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-12 h-12 bg-emerald-500 text-white rounded-2xl flex items-center justify-center font-bold shadow-lg hover:scale-110 transition-transform"
+                >
                   <MessageCircle className="w-6 h-6" />
                 </a>
               </div>

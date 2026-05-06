@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { LucideIcon, ChevronRight, ShoppingCart, Package, Gamepad2, UtensilsCrossed, Gift, Phone, MapPin, Mail, Menu, X, Facebook, Instagram, Youtube, ExternalLink } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { LucideIcon, ChevronRight, ChevronLeft, ShoppingCart, Package, Gamepad2, UtensilsCrossed, Gift, Phone, MapPin, Mail, Menu, X, Facebook, Instagram, Youtube, ExternalLink } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { Product } from '../types';
-import { WHATSAPP } from '../constants';
+import { WHATSAPP, SHOP_NAME } from '../constants';
 
 export const Icon = ({ name, className }: { name: string; className?: string }) => {
   const IconComponent = (LucideIcons as any)[name] as LucideIcon;
@@ -42,6 +42,118 @@ export const SectionHeader = ({ title, subtitle, centered = true }: { title: str
     )}
   </div>
 );
+
+export const ProductCarousel = ({ products, onViewDetails }: { products: Product[], onViewDetails: (p: Product) => void }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const total = products.length;
+
+  const next = () => setCurrentIndex((prev) => (prev + 1) % total);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + total) % total);
+
+  useEffect(() => {
+    const timer = setInterval(next, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleWhatsApp = (product: Product, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const text = encodeURIComponent(`Hi ${SHOP_NAME}, I'm interested in "${product.name}" (${product.price}). Is it available?`);
+    window.open(`https://wa.me/${WHATSAPP}?text=${text}`, '_blank');
+  };
+
+  return (
+    <div className="relative w-full overflow-hidden bg-slate-900 rounded-[2.5rem] mb-12 group shadow-2xl">
+      <div className="flex h-[400px] md:h-[500px]">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.6, ease: "anticipate" }}
+            className="absolute inset-0 flex flex-col md:flex-row"
+          >
+            <div className="w-full md:w-1/2 h-1/2 md:h-full relative overflow-hidden">
+               <img 
+                 src={products[currentIndex].image} 
+                 alt={products[currentIndex].name}
+                 className="w-full h-full object-cover"
+                 referrerPolicy="no-referrer"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent md:hidden"></div>
+            </div>
+            
+            <div className="w-full md:w-1/2 h-1/2 md:h-full p-8 md:p-16 flex flex-col justify-center text-white relative bg-slate-900">
+               <div className="mb-6 flex items-center gap-4">
+                  <span className="px-4 py-1.5 bg-indigo-600 rounded-full text-[10px] font-black uppercase tracking-widest">
+                    Featured Collection
+                  </span>
+                  <span className="text-indigo-400 font-bold text-xs uppercase tracking-widest">{products[currentIndex].category}</span>
+               </div>
+               
+               <h2 className="text-3xl md:text-5xl font-black italic tracking-tighter mb-4 leading-tight">
+                 {products[currentIndex].name}
+               </h2>
+               <p className="text-slate-400 font-medium mb-8 max-w-sm line-clamp-2">
+                 Discover premium quality {products[currentIndex].category} items designed for modern lifestyle and durability.
+               </p>
+               
+               <div className="flex items-center gap-8 mb-10">
+                 <span className="text-3xl font-black text-indigo-400">{products[currentIndex].price}</span>
+                 <div className="h-8 w-px bg-white/10"></div>
+                 <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Premium Choice</span>
+               </div>
+
+               <div className="flex gap-4">
+                 <button 
+                   onClick={(e) => handleWhatsApp(products[currentIndex], e)}
+                   className="px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20"
+                 >
+                   Order Now
+                 </button>
+                 <button 
+                    onClick={() => onViewDetails(products[currentIndex])}
+                    className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all border border-white/10"
+                 >
+                   Quick View
+                 </button>
+               </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="absolute bottom-12 right-8 md:right-16 flex gap-3 z-10">
+        <button 
+          onClick={prev}
+          className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-all"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button 
+          onClick={next}
+          className="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-600/30"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Dots */}
+      <div className="absolute bottom-12 left-8 md:left-16 flex gap-2 z-10">
+        {products.map((_, i) => (
+          <button 
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            className={`h-1.5 transition-all rounded-full ${i === currentIndex ? 'w-12 bg-indigo-500' : 'w-4 bg-white/20 hover:bg-white/40'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
 export const ProductCard = ({ product, onViewDetails, ...props }: { product: Product, onViewDetails: () => void, [key: string]: any }) => {
   const handleWhatsApp = (e: React.MouseEvent) => {
