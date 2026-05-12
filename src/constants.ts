@@ -4,8 +4,8 @@ import { ASSETS } from './assets';
 
 export const SHOP_NAME = "Mallikarjuna Plastics";
 export const LOCATION = "Macherla, Palnadu";
-export const PHONE = "9000748263";
-export const WHATSAPP = "919000748263"; // International format for WhatsApp link
+export const PHONE = "9985277348";
+export const WHATSAPP = "919985277348"; // International format for WhatsApp link
 export const ADDRESS = "Opposite Preetham Dresses, Macherla, Palnadu District, Andhra Pradesh 522426";
 export const GOOGLE_MAPS_LINK = ASSETS.MAP_EMBED;
 
@@ -46,7 +46,7 @@ export const SOCIAL_EMBEDS = {
     { id: 'yt1', url: ASSETS.VIDEOS.TOUR, title: 'Shop Tour' },
   ],
   instagram: [
-    { id: 'insta1', url: 'https://www.instagram.com/p/C6G-mKxJ_qI/', title: 'New Arrivals' }, // Placeholder
+    { id: 'insta1', url: ASSETS.INSTAGRAM_PROFILE, title: 'Follow us for latest updates & reels.' },
   ],
   facebook: [
     { id: 'fb1', url: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fposts%2F10158741865411729', title: 'Customer Review' }, // Placeholder

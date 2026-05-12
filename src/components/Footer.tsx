@@ -1,8 +1,15 @@
 
 import { Facebook, Instagram, Youtube, Phone, MapPin, ShoppingBag, MessageCircle } from 'lucide-react';
 import { SHOP_NAME, LOCATION, PHONE, ADDRESS, NAV_LINKS, WHATSAPP } from '../constants';
+import { ASSETS } from '../assets';
 
 export const Footer = () => {
+  const socialLinks = [
+    { icon: Facebook, href: '#' },
+    { icon: Instagram, href: ASSETS.INSTAGRAM_PROFILE },
+    { icon: Youtube, href: 'https://youtube.com/@shiva_ganesh_ready_mades' }, // Assuming similar handle for YouTube
+  ];
+
   return (
     <footer className="bg-slate-900 text-white py-16 md:py-20 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -19,9 +26,15 @@ export const Footer = () => {
               Your trusted partner for high-quality plasticware and household essentials in {LOCATION}.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm">
-                  <Icon className="w-5 h-5" />
+              {socialLinks.map((social, i) => (
+                <a 
+                  key={i} 
+                  href={social.href} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
+                >
+                  <social.icon className="w-5 h-5" />
                 </a>
               ))}
             </div>
