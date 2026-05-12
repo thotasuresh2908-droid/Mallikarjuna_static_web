@@ -13,41 +13,41 @@ export const ASSETS = {
 
   // Shop Gallery
   GALLERY: [
-    "input_file_0.png", // Main Signboard
-    "input_file_3.png", // Interior view with flowers
-    "input_file_1.png", // Kitchenware and Jars display
-    "input_file_2.png", // Mat and carpet rolls
-    "input_file_4.png", // Chair collection
-    "https://images.unsplash.com/photo-1591192930263-ce433433e54b?auto=format&fit=crop&q=80&w=800", // Plastic stock 1
-    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800", // Cleaning items
-    "https://images.unsplash.com/photo-1621213032549-c1240c345371?auto=format&fit=crop&q=80&w=800", // Household jars
-    "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=800", // Toys section
-    "https://images.unsplash.com/photo-1513151233558-d21a735a22d2?auto=format&fit=crop&q=80&w=800", // Bright buckets
+    "https://images.unsplash.com/photo-1534452203294-49c8913c6c03?auto=format&fit=crop&q=80&w=800", // Shop Interior/Front
+    "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=800", // Market display
+    "https://images.unsplash.com/photo-1558051815-0f18e64e6280?auto=format&fit=crop&q=80&w=800", // Household items
+    "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=800", // Toys collection
+    "https://images.unsplash.com/photo-1604719312563-8912e938a4bb?auto=format&fit=crop&q=80&w=800", // Storage bins
+    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800", // Cleaning sets
+    "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800", // Kitchen storage
+    "https://images.unsplash.com/photo-1590001158193-7f3942466b3c?auto=format&fit=crop&q=80&w=800", // Bright plastics
+    "https://images.unsplash.com/photo-1599643446519-2162599c9d7c?auto=format&fit=crop&q=80&w=800", // Kids section
+    "https://images.unsplash.com/photo-1513519247388-193ad518490d?auto=format&fit=crop&q=80&w=800", // Gift items
   ],
 
   // Products Category Base Images (if needed)
   PRODUCT_PLACEHOLDERS: {
     PLASTIC: 'https://images.unsplash.com/photo-1591192930263-ce433433e54b?auto=format&fit=crop&q=80&w=800',
     TOYS: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&q=80&w=800',
-    KITCHEN: 'https://images.unsplash.com/photo-1621213032549-c1240c345371?auto=format&fit=crop&q=80&w=800',
-    GIFTS: 'https://images.unsplash.com/photo-1513151233558-d21a735a22d2?auto=format&fit=crop&q=80&w=800',
+    KITCHEN: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800',
+    GIFTS: 'https://images.unsplash.com/photo-1513519247388-193ad518490d?auto=format&fit=crop&q=80&w=800',
   },
 
   // Specific Product Images
   PRODUCTS: {
-    BUCKET: 'https://images.unsplash.com/photo-1542013976693-857628c4749e?auto=format&fit=crop&q=80&w=800',
-    STORAGE_TUB: 'input_file_1.png',
-    CHAIR: 'input_file_4.png',
-    STOOL: 'input_file_4.png',
+    BUCKET: 'https://images.unsplash.com/photo-1584622781564-1d9876a13d1a?auto=format&fit=crop&q=80&w=800',
+    STORAGE_TUB: 'https://images.unsplash.com/photo-1604719312563-8912e938a4bb?auto=format&fit=crop&q=80&w=800',
+    CHAIR: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=800',
+    STOOL: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&q=80&w=800',
     MUSICAL_RIDE_ON: 'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&q=80&w=800',
     BUILDING_STATION: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&q=80&w=800',
-    WALKER: 'https://images.unsplash.com/photo-1618842676088-c4d48a6a7c9d?auto=format&fit=crop&q=80&w=800',
-    FLASK: 'input_file_1.png',
-    PAN_SET: 'https://images.unsplash.com/photo-1584946914183-511ad96.jpg?auto=format&fit=crop&q=80&w=800',
-    SPICE_RACK: 'input_file_1.png',
-    ELEPHANT_SHOWPIECE: 'input_file_3.png',
-    GLASS_VASE: 'input_file_3.png',
-    DECOR: 'input_file_3.png',
+    WALKER: 'https://images.unsplash.com/photo-1555009393-f20bdb245c4d?auto=format&fit=crop&q=80&w=800',
+    FLASK: 'https://images.unsplash.com/photo-1521404121619-af814f86be2e?auto=format&fit=crop&q=80&w=800',
+    PAN_SET: 'https://images.unsplash.com/photo-1599672886121-5fa99c15bcbc?auto=format&fit=crop&q=80&w=800',
+    SPICE_RACK: 'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=800',
+    ELEPHANT_SHOWPIECE: 'https://images.unsplash.com/photo-1608639535384-90a430932204?auto=format&fit=crop&q=80&w=800',
+    GLASS_VASE: 'https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&q=80&w=800',
+    DECOR: 'https://images.unsplash.com/photo-1513519247388-193ad518490d?auto=format&fit=crop&q=80&w=800',
   },
 
   // Video & Social

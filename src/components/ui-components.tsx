@@ -44,16 +44,41 @@ export const SectionHeader = ({ title, subtitle, centered = true }: { title: str
 );
 
 
-export const SmartImage = ({ src, alt, className, ...props }: { src: string, alt: string, className?: string, [key: string]: any }) => (
-  <img 
-    src={src} 
-    alt={alt} 
-    className={className} 
-    referrerPolicy="no-referrer" 
-    loading="lazy"
-    {...props}
-  />
-);
+export const SmartImage = ({ src, alt, className, ...props }: { src: string, alt: string, className?: string, [key: string]: any }) => {
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-slate-50">
+      {loading && (
+        <div className="absolute inset-0 bg-slate-100 animate-pulse flex items-center justify-center z-10">
+          <div className="w-8 h-8 border-2 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        </div>
+      )}
+      
+      {error ? (
+        <div className="absolute inset-0 bg-indigo-50 border border-indigo-100 flex flex-col items-center justify-center p-4 text-center z-20">
+          <LucideIcons.ImageOff className="w-8 h-8 text-indigo-300 mb-2" />
+          <span className="text-[10px] font-black uppercase tracking-widest text-indigo-400 leading-none">{alt}</span>
+        </div>
+      ) : (
+        <img 
+          src={src} 
+          alt={alt} 
+          className={`${className} ${loading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}`}
+          referrerPolicy="no-referrer" 
+          loading="lazy"
+          onLoad={() => setLoading(false)}
+          onError={() => {
+            setError(true);
+            setLoading(false);
+          }}
+          {...props}
+        />
+      )}
+    </div>
+  );
+};
 
 export const ProductCarousel = ({ products, onViewDetails }: { products: Product[], onViewDetails: (p: Product) => void }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
